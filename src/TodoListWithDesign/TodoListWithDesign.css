@@ -1,0 +1,31 @@
+.add-item 
+{
+    display: flex;
+}
+
+.add-item>*
+{
+    margin: 1%;
+}
+
+.create-item
+{
+    display: flex;
+}
+
+.create-item>*
+{
+    margin: 1%;
+}
+
+.show-items
+{
+    display: flex;
+    margin-top: 2%;
+}
+
+.show-items>*
+{
+    text-align: center;
+    width: 100%;
+}
