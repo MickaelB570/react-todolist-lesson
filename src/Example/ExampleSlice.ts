@@ -7,7 +7,7 @@ interface State {
 export const exampleSlice = createSlice({
     name: 'example',
     initialState: {
-        name: 'MOrgan',
+        name: 'Espace',
     },
     reducers: {
         setName: (state: State, action: { payload: string }) => {
