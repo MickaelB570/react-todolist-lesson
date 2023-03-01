@@ -1,14 +1,25 @@
 import { CloseOutlined, EditOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import { deleteColumn } from '../../Slice/ColumnsSlice'
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 
 interface HeaderInterface {
     label: string;
     onEditColumn(): void;
-    onDeleteColumn(): void;
 }
 
-const Header = ({ label, onEditColumn, onDeleteColumn }: HeaderInterface) => {
+const Header = ({ label, onEditColumn }: HeaderInterface) => {
+    const dispatch = useDispatch();
+
+     const HandleOnDeleteColumn = () => {
+        //onClickNewColumn(newColumnName);
+        dispatch(deleteColumn(label));
+    };
+
+
+    
     return (
         <div className="todo-list-column-header">
             {label}
@@ -25,7 +36,7 @@ const Header = ({ label, onEditColumn, onDeleteColumn }: HeaderInterface) => {
                 danger
                 size="small"
                 icon={<CloseOutlined />}
-                onClick={onDeleteColumn}
+                onClick={HandleOnDeleteColumn}
             />
         </div>
     );

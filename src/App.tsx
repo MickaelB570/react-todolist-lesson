@@ -6,8 +6,11 @@ import TodoListEdit from './TodoListEdit';
 import TodoListWithDesign from './TodoListWithDesign';
 import TodoListRedux from './TodoListRedux';
 import Example from './Example/Example';
+import store from './TodoListRedux/store';
+import { Provider } from 'react-redux';
 
 const App = () => (
+    <Provider store={store}>
     <div className="app">
         <Navigation />
         <Routes>
@@ -19,6 +22,7 @@ const App = () => (
             <Route path="*" element={<Navigate to="/todo-list-basic" />} />
         </Routes>
     </div>
+    </Provider>
 );
 
 export default App;

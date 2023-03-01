@@ -1,15 +1,25 @@
 import React from 'react';
 import { CloseOutlined, EditOutlined } from '@ant-design/icons';
 import { List, Button } from 'antd';
+import { useDispatch } from 'react-redux';
+import { deleteItem } from '../../Slice/ItemsSlice'
+
 
 interface ItemInterface {
     label: string;
     id: string;
-    onDeleteItem(): void;
     onEditItem(): void;
 }
 
-const Item = ({ label, id, onDeleteItem, onEditItem }: ItemInterface) => {
+const Item = ({ label, id, onEditItem }: ItemInterface) => {
+    const dispatch = useDispatch();
+
+    const HandleOnDeleteItem = () => {
+       //onClickNewColumn(newColumnName);
+       dispatch(deleteItem(label));
+   };
+    
+    
     return (
         <List.Item className="todo-list-edit-item">
             {label}
@@ -25,7 +35,7 @@ const Item = ({ label, id, onDeleteItem, onEditItem }: ItemInterface) => {
                     danger
                     size="small"
                     icon={<CloseOutlined />}
-                    onClick={onDeleteItem}
+                    onClick={HandleOnDeleteItem}
                 />
             </div>
         </List.Item>

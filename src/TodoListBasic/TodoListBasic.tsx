@@ -21,6 +21,8 @@ const TodoListBasic = () => {
         setType(e.target.value);
     } 
 
+
+
     //Rajoute à la liste la tache en fonction du type
     const handleClickTache = () => {
         switch(type) { 

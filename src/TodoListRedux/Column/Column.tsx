@@ -8,20 +8,16 @@ interface ColumnInterface {
     value: string;
     label: string;
     columnItems: Item[];
-    onDeleteItem(id: string): void;
     onEditItem(id: string): void;
     onEditColumn(id: string): void;
-    onDeleteColumn(id: string): void;
 }
 
 const Column = ({
     value,
     label,
     columnItems,
-    onDeleteItem,
     onEditItem,
     onEditColumn,
-    onDeleteColumn,
 }: ColumnInterface) => {
     return (
         <List
@@ -31,7 +27,6 @@ const Column = ({
                 <Header
                     label={label}
                     onEditColumn={() => onEditColumn(value)}
-                    onDeleteColumn={() => onDeleteColumn(value)}
                 />
             }
             dataSource={columnItems}
@@ -39,7 +34,6 @@ const Column = ({
                 <ItemComp
                     label={itemLabel}
                     id={id}
-                    onDeleteItem={() => onDeleteItem(id)}
                     onEditItem={() => onEditItem(id)}
                 />
             )}
